@@ -23,13 +23,16 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+#        run: npm install
+        run: pnpm install
 
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+#        run: |
+#          npm run build
         run: |
-          npm run build
+          pnpm build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
