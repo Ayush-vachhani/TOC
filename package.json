@@ -28,6 +28,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@viz-js/viz": "^3.4.0"
+    "@viz-js/viz": "^3.4.0",
+    "automata.js": "^0.2.1"
   }
 }

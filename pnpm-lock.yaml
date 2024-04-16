@@ -8,6 +8,9 @@ dependencies:
   '@viz-js/viz':
     specifier: ^3.4.0
     version: 3.4.0
+  automata.js:
+    specifier: ^0.2.1
+    version: 0.2.1
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -661,6 +664,10 @@ packages:
     dependencies:
       dequal: 2.0.3
     dev: true
+
+  /automata.js@0.2.1:
+    resolution: {integrity: sha512-/8Eq1XGvJZGuazh2UGEoZKVbVfd4JDHXHy9DRMhmYsZlXLFxz5bh2vCA/ECmTfHExzCWuD6ELggLRbYXHnVhfA==}
+    dev: false
 
   /autoprefixer@10.4.19(postcss@8.4.38):
     resolution: {integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==}
