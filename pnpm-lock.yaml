@@ -34,6 +34,9 @@ devDependencies:
   flowbite-svelte:
     specifier: ^0.45.0
     version: 0.45.0(svelte@4.2.14)
+  flowbite-svelte-icons:
+    specifier: ^1.5.0
+    version: 1.5.0(svelte@4.2.14)(tailwind-merge@2.2.2)(tailwindcss@3.4.3)
   postcss:
     specifier: ^8.4.32
     version: 8.4.38
@@ -949,6 +952,18 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
+
+  /flowbite-svelte-icons@1.5.0(svelte@4.2.14)(tailwind-merge@2.2.2)(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-8s0pb7MplWcWDI3/QB6sqH1aXMuChom7iDZqtjFd7VAoqae5vlSusi+J8JdF4Y/9l1cav5gQrAyK1+WcYTUMBw==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0
+      tailwind-merge: ^2.0.0
+      tailwindcss: ^3.3.2
+    dependencies:
+      svelte: 4.2.14
+      tailwind-merge: 2.2.2
+      tailwindcss: 3.4.3
     dev: true
 
   /flowbite-svelte@0.45.0(svelte@4.2.14):

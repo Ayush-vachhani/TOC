@@ -9,4 +9,11 @@ declare global {
 		// interface Platform {}
 	}
 }
-export {};
+interface FSMJSON {
+	initialState: string;
+	acceptStates: string[];
+	numOfStates: number;
+	type: string;
+	transitions: { [fromState: string]: { [toState: string]: string } };
+}
+export {FSMJSON};
