@@ -3,7 +3,6 @@
   type $$Props = NodeProps;
 
   export let id: $$Props['id'];
-  export let data: $$Props['data'];
 
   const bottomConnections = useHandleConnections({ nodeId: id, type: 'source' });
 

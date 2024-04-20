@@ -3,7 +3,6 @@
   type $$Props = NodeProps;
 
   export let id: $$Props['id'];
-  export let data: $$Props['data'];
 
   const topConnections = useHandleConnections({ nodeId: id, type: 'target' });
 
