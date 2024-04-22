@@ -1,5 +1,5 @@
-import { writable } from 'svelte/store';
 import type {Writable} from "svelte/store";
+import {writable} from 'svelte/store';
 import type {FSMJSON} from "../app";
 // Define the initial FSM JSON
 const initialFSM = {
@@ -8,21 +8,21 @@ const initialFSM = {
     numOfStates: 2,
     type: 'DFA',
     transitions: {
-        'a': { 'b': '1', 'a': '0' },
-        'b': { 'a': '0', 'c': 'ε' }
+        'a': {'b': '1', 'a': '0'},
+        'b': {'a': '0', 'c': 'ε'}
     }
 };
 
-export const FSM:Writable<FSMJSON> = writable(initialFSM);
+export const FSM: Writable<FSMJSON> = writable(initialFSM);
 
-export function removeTransition(fromState: string, toState: string):void {
+export function removeTransition(fromState: string, toState: string): void {
     FSM.update(fsm => {
         delete fsm.transitions[fromState][toState];
         return fsm;
     });
 }
 
-export function addTransition(fromState: string, toState: string, label: string):void {
+export function addTransition(fromState: string, toState: string, label: string): void {
     FSM.update(fsm => {
         if (!fsm.transitions[fromState]) {
             fsm.transitions[fromState] = {};
@@ -32,7 +32,7 @@ export function addTransition(fromState: string, toState: string, label: string)
     });
 }
 
-export function addFinalState(state: string|null): void {
+export function addFinalState(state: string | null): void {
     FSM.update(fsm => {
         if (!fsm.acceptStates.includes(<string>state)) {
             // @ts-ignore

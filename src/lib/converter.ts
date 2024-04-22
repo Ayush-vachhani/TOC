@@ -1,8 +1,8 @@
 let DOTSCRIPTHEADER = 'digraph finite_state_machine {\n' + '  rankdir = LR;\n';
 let DOTSCRIPTEND = '}\n';
 
-function escapeCharacter(token:string):string {
-    switch (token)  {
+function escapeCharacter(token: string): string {
+    switch (token) {
         case ' ':
             return '[space]';
         case '\n':
@@ -17,7 +17,7 @@ function escapeCharacter(token:string):string {
     return token;
 }
 
-export function toDotScript(fsm:any):string {
+export function toDotScript(fsm: any): string {
     let transitionDotScript = '  node [shape = circle];\n';
     for (let from_id in fsm.transitions) {
         for (let to_id in fsm.transitions[from_id]) {

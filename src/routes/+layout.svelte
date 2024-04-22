@@ -5,7 +5,7 @@
 
 
 <main class="flex flex-col h-screen">
-    <Navbar />
+    <Navbar/>
     <div class="flex-grow m-4 p-4 border-2">
         <slot/>
     </div>

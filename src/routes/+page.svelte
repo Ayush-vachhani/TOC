@@ -1,6 +1,6 @@
 <script lang="ts">
     import {onMount} from 'svelte';
-    import {FSM, addFinalState, removeFinalState, addTransition} from "$stores/FSM";
+    import {addFinalState, addTransition, FSM, removeFinalState} from "$stores/FSM";
     import {instance} from '@viz-js/viz';
     import {toDotScript} from "$lib/converter";
     import {GradientButton, Input, Label,} from "flowbite-svelte";
@@ -8,9 +8,9 @@
     import type {FSMJSON} from "../app";
 
 
-    let Graph:HTMLElement;
-    let finalState:string|null=null;
-    let FSM_JSON:FSMJSON = $FSM;
+    let Graph: HTMLElement;
+    let finalState: string | null = null;
+    let FSM_JSON: FSMJSON = $FSM;
 
     onMount(() => {
         return FSM.subscribe(value => {
@@ -18,6 +18,7 @@
             renderGraph();
         });
     });
+
     function renderGraph() {
         const dotString = toDotScript(FSM_JSON);
         console.log(dotString)
@@ -25,6 +26,7 @@
             Graph.innerHTML = viz.renderSVGElement(dotString).outerHTML;
         });
     }
+
     function handleSubmit(event: Event) {
         const form = event.target as HTMLFormElement;
         const formData = new FormData(form);
@@ -37,13 +39,14 @@
     }
 
 </script>
-<Label for="first_name" class="mb-2">Initial state</Label>
+<Label class="mb-2" for="first_name">Initial state</Label>
 <!--<Input type="text" placeholder="initial state" required bind:value={FSM_JSON.initialState} on:input={renderGraph}/>-->
-<Input type="text" placeholder="initial state" required bind:value={$FSM.initialState} on:input={renderGraph}/>
+<Input bind:value={$FSM.initialState} on:input={renderGraph} placeholder="initial state" required type="text"/>
 
-<Label for="first_name" class="mb-2">Add Final state</Label>
-<Input type="text" placeholder="add final state" required bind:value={finalState}/>
-<GradientButton color="greenToBlue" on:click={() => {addFinalState(finalState); finalState=null}}>Add Final State</GradientButton>
+<Label class="mb-2" for="first_name">Add Final state</Label>
+<Input bind:value={finalState} placeholder="add final state" required type="text"/>
+<GradientButton color="greenToBlue" on:click={() => {addFinalState(finalState); finalState=null}}>Add Final State
+</GradientButton>
 <br><br>
 {#if FSM_JSON.acceptStates.length > 0}
     <div class="final-states-container">
@@ -57,15 +60,15 @@
         {/each}
     </div>
 {/if}
-<Table />
+<Table/>
 ADD MORE TRANSITIONS
 <form on:submit|preventDefault={handleSubmit}>
-    <Label for="inputSymbol" class="mb-2">From State</Label>
-    <Input type="text" name="FromState" placeholder="eg. a, b" required />
-    <Label for="inputSymbol" class="mb-2">Input Symbol</Label>
-    <Input type="text" name="InputSymbol" placeholder="eg. 0, 1" required />
-    <Label for="toState" class="mb-2">To State</Label>
-    <Input type="text" name="ToState" placeholder="eg. c, d" required />
+    <Label class="mb-2" for="inputSymbol">From State</Label>
+    <Input name="FromState" placeholder="eg. a, b" required type="text"/>
+    <Label class="mb-2" for="inputSymbol">Input Symbol</Label>
+    <Input name="InputSymbol" placeholder="eg. 0, 1" required type="text"/>
+    <Label class="mb-2" for="toState">To State</Label>
+    <Input name="ToState" placeholder="eg. c, d" required type="text"/>
     <GradientButton color="greenToBlue" type="submit">Add Transition</GradientButton>
 </form>
-<div class="sample" bind:this={Graph}/>
+<div bind:this={Graph} class="sample"/>
