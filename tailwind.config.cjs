@@ -9,6 +9,8 @@ const config = {
   theme: {
     extend: {
       colors: {
+        "primary-dark" : "#191929",
+        "fontColor":"#b4b4b9",
         primary: {
           50: '#FFF5F2',
           100: '#FFF1EE',

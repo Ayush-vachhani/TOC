@@ -1,6 +1,6 @@
 <script>
     import {Button, CloseButton, Drawer, Sidebar, SidebarGroup, SidebarItem} from "flowbite-svelte";
-    import {ListOutline} from "flowbite-svelte-icons";
+    import {BarsOutline} from "flowbite-svelte-icons";
     import {sineIn} from "svelte/easing";
     import {page} from "$app/stores";
 
@@ -14,8 +14,8 @@
 </script>
 
 <div class="text-center">
-    <Button on:click={() => (hidden = false)}>
-        <ListOutline/>
+    <Button color="none" on:click={() => (hidden = false)}>
+        <BarsOutline class="scale-150 text-fontColor"/>
     </Button>
 </div>
 <Drawer bind:hidden={hidden} id="sidebar2" {transitionParams} transitionType="fly">
