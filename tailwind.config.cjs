@@ -11,6 +11,7 @@ const config = {
       colors: {
         "primary-dark" : "#191929",
         "fontColor":"#b4b4b9",
+        "background-dark":"#101017",
         primary: {
           50: '#FFF5F2',
           100: '#FFF1EE',

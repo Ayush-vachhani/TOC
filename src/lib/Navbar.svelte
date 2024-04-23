@@ -4,7 +4,7 @@
     export let Title;
 </script>
 
-<Navbar color="primary" let:NavContainer>
+<Navbar color="none" let:NavContainer>
     <NavContainer class="flex flex-row gap-10 px-5 py-2 rounded-lg">
         <Drawer/>
         <div class="bg-primary-dark flex flex-row justify-between flex-1 rounded-xl h-14">
