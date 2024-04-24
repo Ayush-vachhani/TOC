@@ -4,9 +4,9 @@
 </script>
 
 
-<main class="flex flex-col h-screen">
-    <Navbar />
-    <div class="flex-grow m-4 p-4 border-2">
+<main class="bg-background-dark h-screen">
+    <Navbar/>
+    <div class="flex-grow m-4 p-4">
         <slot/>
     </div>
 </main>

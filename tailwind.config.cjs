@@ -5,10 +5,14 @@ const config = {
   plugins: [require('flowbite/plugin')],
 
   darkMode: 'class',
+  
 
   theme: {
     extend: {
       colors: {
+        "output-box":"#191929",
+        "background-dark":"#101017",
+        "box-background": "#C1C8DA",
         primary: {
           50: '#FFF5F2',
           100: '#FFF1EE',
