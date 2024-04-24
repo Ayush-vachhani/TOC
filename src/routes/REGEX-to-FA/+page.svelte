@@ -33,16 +33,16 @@
         });
     }
 </script>
-<div class="flex flex-row p-10">
+<div class="flex flex-row p-6 pb-0">
     <div class="grow h-14">
-        <div class="flex flex-col gap-10 p-10">
+        <div class="flex flex-col gap-10 p-10 ">
             <div>
-                <Label for="first_name" class="mb-2 text-2xl">Enter the regex</Label>
+                <Label for="first_name" class="mb-2 text-2xl" style="font-family: Inter;">Enter the regex</Label>
                 <Input type="text" placeholder="regex expression" class="w-4/5 bg-output-box" required bind:value={inputRegex} on:input={renderFA}/>
             </div>
             <div> 
                 <Label>
-                <div class="font-sans text-2xl">Convert to</div>
+                <div class="font- text-2xl" style="font-family: Inter;">Convert to</div>
                 <Select class="mt-2 w-4/5" items={options} bind:value={selected} on:change={renderFA}/>
                 </Label>
             </div>
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-output-box rounded-2xl">
+    <div class="bg-primary-dark rounded-2xl">
         <p class=" text-white p-5 text-3xl">Final Output    :</p>
         <div class="sample px-32 py-48" bind:this={Graph}/>
     </div>
