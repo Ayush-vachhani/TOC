@@ -9,7 +9,13 @@
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     %sveltekit.head%
 </head>
-<body class="bg-white dark:bg-gray-800" data-sveltekit-preload-data="hover">
+<body class="bg-white dark:bg-gray-800 noScroll" data-sveltekit-preload-data="hover">
 <div style="display: contents">%sveltekit.body%</div>
 </body>
+<style>
+    .noScroll::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
+    }
+</style>
 </html>
