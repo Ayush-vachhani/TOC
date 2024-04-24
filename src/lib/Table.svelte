@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {writable} from "svelte/store";
     import {FSM, removeTransition} from "$stores/FSM";
     import {
         GradientButton,
@@ -34,7 +33,9 @@
                     <TableBodyCell>{toState}</TableBodyCell>
                     <TableBodyCell>{transitionLabel}</TableBodyCell>
                     <TableBodyCell>
-                        <GradientButton color="purpleToPink" on:click={() => removeTransition(fromState, toState)}>Delete</GradientButton>
+                        <GradientButton color="purpleToPink" on:click={() => removeTransition(fromState, toState)}>
+                            Delete
+                        </GradientButton>
                     </TableBodyCell>
                 </TableBodyRow>
             {/each}

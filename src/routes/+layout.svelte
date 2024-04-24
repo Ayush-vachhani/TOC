@@ -4,8 +4,8 @@
 </script>
 
 
-<main class="bg-background-dark h-screen">
-    <Navbar/>
+<main class="flex flex-col h-screen bg-background-dark" style="font-family: Julius Sans One;">
+    <Navbar Title={"Regex to Finite Automata"} />
     <div class="flex-grow m-4 p-4">
         <slot/>
     </div>

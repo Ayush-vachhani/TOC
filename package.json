@@ -30,6 +30,7 @@
   "type": "module",
   "dependencies": {
     "@viz-js/viz": "^3.4.0",
+    "@xyflow/svelte": "^0.0.41",
     "automata.js": "^0.2.1"
   }
 }

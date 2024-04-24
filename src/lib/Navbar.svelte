@@ -1,19 +1,21 @@
 <script>
-    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-    import { DarkMode } from 'flowbite-svelte';
+    import {DarkMode, Navbar, NavBrand, NavHamburger, NavUl} from 'flowbite-svelte';
     import Drawer from "$lib/Drawer.svelte";
+    export let Title;
 </script>
 
-<Navbar let:NavContainer color="primary">
-    <NavContainer class="px-5 py-2 rounded-lg bg-white dark:bg-gray-600">
+<Navbar color="none" let:NavContainer>
+    <NavContainer class="flex flex-row gap-10 px-5 py-2 rounded-lg">
         <Drawer/>
-        <NavBrand>
-            <span class="self-center whitespace-nowrap text-xl font-semibold">TOC VISUALIZATION</span>
-        </NavBrand>
-        <NavHamburger />
-        <NavUl>
-<!--            <NavLi href="/">Home</NavLi>-->
-        </NavUl>
-        <DarkMode />
+        <div class="bg-primary-dark flex flex-row justify-between flex-1 rounded-xl h-14">
+            <NavBrand class="text-3xl font-semibold text-fontColor flex-1 text-center">
+                <span class="w-full self-center whitespace-nowrap font-thin" style="font-family: Julius Sans One;">{Title}</span>
+            </NavBrand>
+            <NavHamburger/>
+            <NavUl>
+                <!--            <NavLi href="/">Home</NavLi>-->
+            </NavUl>
+            <DarkMode class="mr-4 my-2" />
+        </div>
     </NavContainer>
 </Navbar>
