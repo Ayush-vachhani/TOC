@@ -1,7 +1,7 @@
 <script lang="ts">
     import {FSM, removeTransition} from "$stores/FSM";
     import {
-        GradientButton,
+        Button,
         Table,
         TableBody,
         TableBodyCell,
@@ -16,8 +16,8 @@
     });
 </script>
 
-<Table hoverable={true}>
-    <TableHead>
+<Table color="custom" class="bg-fontColor text-center text-black rounded-xl" hoverable={true}>
+    <TableHead class="text-black text-md">
         <TableHeadCell>From State</TableHeadCell>
         <TableHeadCell>To State</TableHeadCell>
         <TableHeadCell>Transition Label</TableHeadCell>
@@ -29,13 +29,13 @@
         {#each Object.entries(FSM_JSON.transitions) as [fromState, transitions]}
             {#each Object.entries(transitions) as [toState, transitionLabel]}
                 <TableBodyRow>
-                    <TableBodyCell>{fromState}</TableBodyCell>
-                    <TableBodyCell>{toState}</TableBodyCell>
-                    <TableBodyCell>{transitionLabel}</TableBodyCell>
-                    <TableBodyCell>
-                        <GradientButton color="purpleToPink" on:click={() => removeTransition(fromState, toState)}>
+                    <TableBodyCell class="text-xl font-semibold dark:text-black">{fromState}</TableBodyCell>
+                    <TableBodyCell class="text-xl font-semibold dark:text-black">{toState}</TableBodyCell>
+                    <TableBodyCell class="text-xl font-semibold dark:text-black">{transitionLabel}</TableBodyCell>
+                    <TableBodyCell class="text-xl font-semibold dark:text-black">
+                        <Button color="none" class="bg-primary-dark text-white" on:click={() => removeTransition(fromState, toState)}>
                             Delete
-                        </GradientButton>
+                        </Button>
                     </TableBodyCell>
                 </TableBodyRow>
             {/each}

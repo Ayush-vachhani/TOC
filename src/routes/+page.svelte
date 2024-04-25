@@ -11,6 +11,7 @@
   import { Button, GradientButton, Input, Label, Select } from "flowbite-svelte";
   import Table from "$lib/Table.svelte";
   import type { FSMJSON } from "../app";
+  import {TrashBinOutline} from "flowbite-svelte-icons";
 
   let Graph: HTMLElement;
   let finalState: string | null = null;
@@ -45,7 +46,7 @@
   }
 </script>
 
-<div class="flex flex-row justify-evenly">
+<div class="flex flex-row justify-evenly gap-10">
   <div class="w-[40%] flex flex-col gap-4">
     <div class="flex flex-row gap-10">
       <Label class="block mb-2 text-lg pt-2" for="first_name"
@@ -80,25 +81,23 @@
         >Add
       </Button>
     </div>
-    
-    <br /><br />
-    {#if FSM_JSON.acceptStates.length > 0}
-      <div class="final-states-container">
-        <Select items={currentNodes} />
+      <div class="text-black dark:text-white text-2xl text-center">End States</div>
+        {#if FSM_JSON.acceptStates.length > 0}
+      <div class="final-states-container flex flex-row flex-wrap gap-4 text-center">
         {#each FSM_JSON.acceptStates as state}
-          <div class="final-state-item flex items-center mb-4">
+          <div class="final-state-item flex  items-center mb-4 bg-primary-dark rounded-lg">
             <h5
-              class="mb-2 mr-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="pl-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
             >
               {state}
             </h5>
-            <GradientButton
-              class="w-fit"
-              color="redToYellow"
+            <Button
+            class="p-2"
+              color="none"
               on:click={() => removeFinalState(state)}
             >
-              Delete
-            </GradientButton>
+              <TrashBinOutline class="text-black dark:text-white" />
+            </Button>
           </div>
         {/each}
       </div>
@@ -108,15 +107,15 @@
         <form on:submit|preventDefault={handleSubmit}>
           <div class="flex flex-row justify-evenly">
               <div class="flex flex-col justify-center items-center">
-                  <Label class="mb-2" for="inputSymbol">From State</Label>
+                  <Label class="mb-2 dark:text-black font-bold" for="inputSymbol">From State</Label>
                   <Input class="w-24" name="FromState" placeholder="eg. a, b" required type="text" />
               </div>
               <div class="flex flex-col justify-center items-center">
-                  <Label class="mb-2" for="inputSymbol">Input Symbol</Label>
+                  <Label class="mb-2 dark:text-black font-bold" for="inputSymbol">Input Symbol</Label>
                   <Input class="w-24 bg-primary-dark" name="InputSymbol" placeholder="eg. 0, 1" required type="text" />
               </div>
               <div class="flex flex-col justify-center items-center">
-                  <Label class="mb-2" for="toState">To State</Label>
+                  <Label class="mb-2 dark:text-black font-bold" for="toState">To State</Label>
                   <Input class="w-24 bg-primary-dark" name="ToState" placeholder="eg. c, d" required type="text" />
               </div>
           </div>
@@ -127,7 +126,10 @@
     </div>
     <Table />
   </div>
-  <div>
-    <div bind:this={Graph} class="sample" />
+  <div class="bg-primary-dark flex-1 rounded-xl flex flex-col">
+    <p class=" text-white p-5 m-0 text-3xl">Final Output    :</p>
+    <div class="flex-1 text-center flex justify-center items-center">
+      <div bind:this={Graph} class="sample" />
+    </div>
   </div>
 </div>
